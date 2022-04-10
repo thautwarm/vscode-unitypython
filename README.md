@@ -25,4 +25,4 @@ Features:
 2. Install `vscode-unitypython` extension, and create a `.unitypython.json` in your workspace.
 3. (for Unity users who wants to *hot reload* UnityPython) Copy `Assets/FileWatcher.cs` and `Assets/PythonHotReloader.cs` to your Unity project's `Assets` folder, and attach these two components to a top-level empty game object.
 
-NOTE: The released is still preview, please update this extension frequently.
+NOTE: The release is still preview, please update this extension frequently.
