@@ -1,0 +1,98 @@
+{
+  "name": "vscode-unitypython",
+  "displayName": "vscode-unitypython",
+  "description": "VSCode Support for UnityPython",
+  "version": "0.1.0",
+  "icon": "logo.png",
+  "publisher": "Cosabys",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thautwarm/vscode-unitypython"
+  },
+  "bugs": {
+    "url": "https://github.com/thautwarm/vscode-unitypython/issues"
+  },
+  "engines": {
+    "vscode": "^1.42.0"
+  },
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "Unity",
+    "Python"
+  ],
+  "activationEvents": [
+    "workspaceContains:.unitypython.json"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "unitypython.start",
+        "title": "UnityPython: Start as UnityPython Project"
+      },
+      {
+        "command": "unitypython.rebuild",
+        "title": "UnityPython: Rebuild Python Scripts"
+      }
+    ],
+    "keybindings": [],
+    "configuration": {
+      "type": "object",
+      "title": "VSCode UnityPython",
+      "properties": {
+        "unitypython.easyconfig": {
+          "type": "boolean",
+          "default": "true",
+          "description": "Only with this option, setup reasonable type checking with 'github.com/thautwarm/unitypython-typeshed'."
+        },
+        "unitypython.build-output-directory": {
+          "type": "string",
+          "default": "Compiled",
+          "description": "The directory to build UnityPython to."
+        },
+        "unitypython.builtin-stub-dirname": {
+          "type": "string",
+          "default": "unitypython-typeshed",
+          "description": "The directory name of the builtin stubs."
+        }
+      }
+    }
+  },
+  "extensionDependencies": [
+    "ms-python.vscode-pylance",
+    "ms-python.python"
+  ],
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.42.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.0.1",
+    "typescript": "^4.6.3",
+    "vscode-test": "^1.3.0"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "stat-mode": "^0.2.2"
+  },
+  "preview": true
+}
