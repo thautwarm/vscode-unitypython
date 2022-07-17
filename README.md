@@ -2,11 +2,6 @@
 
 [UnityPython](https://github.com/thautwarm/Traffy.UnityPython) is a Python implementation that enables all-platform UI/game development and development time hot-reloading.
 
-<p align="center">
-<img width="250px" src="./logo.png"/>
-</p>
-
-
 ## Introduction
 This extension is enabled when a `.unitypython.json` is included anywhere in a workspace folder.
 
@@ -21,7 +16,7 @@ Features:
 
 ## Usage
 
-1. Activate your preferred Python environment (Python >= 3.8 is a must, Python 3.10 is better), and do `pip install unitypython --upgrade`
+1. Activate your preferred Python environment (Python >= 3.8 is a must, Python 3.10 is better), and do `pip install upycc --upgrade`
 2. Install `vscode-unitypython` extension, and create a `.unitypython.json` in your workspace.
 3. (for Unity users who wants to *hot reload* UnityPython) Copy `Assets/FileWatcher.cs` and `Assets/PythonHotReloader.cs` to your Unity project's `Assets` folder, and attach these two components to a top-level empty game object.
 

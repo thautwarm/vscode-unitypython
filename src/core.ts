@@ -26,7 +26,7 @@ export async function rebuild(wf: vscode.WorkspaceFolder) {
         await execShell(
             pythonPath,
             ["-m",
-                "unitypython", fsPath,
+                "upycc", fsPath,
                 "--includesrc",
                 "--recursive",
                 "--outdir", path.join(fsPath, outDir),
@@ -83,14 +83,14 @@ export async function setup(context: vscode.ExtensionContext, wf: vscode.Workspa
     await pythonApi.pythonExtensionReady();
     let pythonPath = await getPythonPath(wf);
     try {
-        await execShell(pythonPath, ["-m", "unitypython", "--help"])
+        await execShell(pythonPath, ["-m", "upycc", "--help"])
     }
     catch
     {
         await vscode.window.showErrorMessage(
-            "unitypython is not installed in your environment." +
+            "upycc (unitypython compiler) is not installed in your environment." +
             "Select a different Python Environment or install it via:\n" +
-            "    pip install unitypython --upgrade")
+            "    pip install upycc --upgrade")
         return;
     }
     let unityPythonConfig = workspace.getConfiguration("unitypython", wf);
