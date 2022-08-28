@@ -20,17 +20,26 @@ const execShell = (cmd: string, args: string[]) =>
 export async function rebuild(wf: vscode.WorkspaceFolder) {
     if (isInterestedWorkspace(wf)) {
         let outDir = vscode.workspace.getConfiguration("unitypython", wf).get<string>(constants.KeyBuildOutDirectory);
+        let customRoot = vscode.workspace.getConfiguration("unitypython", wf).get<string>(constants.CustomRoot);
         outDir ??= "Compiled";
-        let fsPath = wf.uri.fsPath;
+        if (!customRoot)
+        {
+            customRoot = wf.uri.fsPath;
+        }
+        else
+        {
+            customRoot = path.join(wf.uri.fsPath, customRoot);
+        }
+        
         let pythonPath = await getPythonPath(wf);
         await execShell(
             pythonPath,
             ["-m",
-                "upycc", fsPath,
+                "upycc", customRoot,
                 "--includesrc",
                 "--recursive",
-                "--outdir", path.join(fsPath, outDir),
-                "--rootdir", fsPath]);
+                "--outdir", path.join(customRoot, outDir),
+                "--rootdir", customRoot]);
     }
 }
 

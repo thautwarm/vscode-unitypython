@@ -2,7 +2,7 @@
   "name": "vscode-unitypython",
   "displayName": "vscode-unitypython",
   "description": "VSCode Support for UnityPython",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "icon": "logo.png",
   "publisher": "Cosabys",
   "license": "MIT",
@@ -47,6 +47,11 @@
       "type": "object",
       "title": "VSCode UnityPython",
       "properties": {
+        "unitypython.custom-root":
+        {
+          "type": "string",
+          "description": "a custom root to build UnityPython source with."
+        },
         "unitypython.easyconfig": {
           "type": "boolean",
           "default": "true",
